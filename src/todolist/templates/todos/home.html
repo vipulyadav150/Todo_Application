@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo</title>
-</head>
-<body>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Todo</title>-->
+<!--</head>-->
+<!--<body>-->
+{%extends 'todos/base.html'%}
+{%block body_block%}
 {%if request.user.is_authenticated%}
 <h1>Logged In</h1>
 
 <h1>{{title}}</h1>
-<p><a href="{%url 'add_todos'%}">Add Task</a></p>
+<p><a href="{%url 'todos:add_todos'%}">Add Task</a></p>
 
 <ul>
         {%for todo in todos%}
@@ -21,6 +23,11 @@
 </ul>
 {%else%}
 <h1>Login First</h1>
+<ul>
+    <li><a href="{%url 'todos:register'%}">SIGN UP</a></li>
+    <li><a href="{%url 'todos:login'%}">SIGN IN</a></li>
+</ul>
 {%endif%}
-</body>
-</html>
+{%endblock%}
+<!--</body>-->
+<!--</html>-->
